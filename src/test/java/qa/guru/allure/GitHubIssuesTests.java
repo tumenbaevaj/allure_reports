@@ -70,7 +70,7 @@ public class GitHubIssuesTests {
         checkIssueName();
     }
 
-    @Step("Открываем репозиторий "+ repositoryName)
+    @Step("Открываем репозиторий " + repositoryName)
     public void openRepository() {
         open(repositoryName);
     }
