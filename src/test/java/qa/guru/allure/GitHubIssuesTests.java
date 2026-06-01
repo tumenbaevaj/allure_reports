@@ -65,23 +65,10 @@ public class GitHubIssuesTests {
     public void annotatedStepTest() {
         SelenideLogger.addListener("allure", new AllureSelenide());
 
-        openRepository();
-        openIssuesTab();
-        checkIssueName();
-    }
+        WebSteps steps = new WebSteps();
 
-    @Step("Открываем репозиторий " + repositoryName)
-    public void openRepository() {
-        open(repositoryName);
-    }
-
-    @Step("Переходим в раздел Issues")
-    public void openIssuesTab() {
-        $("a[href='/" + repositoryName + "/issues']").click();
-    }
-
-    @Step("Проверяем название Issue")
-    public void checkIssueName() {
-        $(withText(issueName)).should(Condition.exist);
+        steps.openRepository(repositoryName);
+        steps.openIssuesTab(repositoryName);
+        steps.checkIssueName(issueName);
     }
 }
